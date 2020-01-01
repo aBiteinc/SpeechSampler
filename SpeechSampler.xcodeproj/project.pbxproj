@@ -294,14 +294,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
-				DEVELOPMENT_TEAM = GCXLS66975;
+				DEVELOPMENT_TEAM = 822HL63RB2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SpeechSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.abite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -324,7 +324,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.abite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
