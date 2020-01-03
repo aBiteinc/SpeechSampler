@@ -11,12 +11,7 @@ import SwiftUI
 struct DetailView: View {
     @State var memo:Memo
     @EnvironmentObject var capManager:CaptionManager
-    @Environment(\.managedObjectContext) var moc
-    @FetchRequest(
-        entity: MemoCore.entity(),
-        sortDescriptors: []
-    ) var memos: FetchedResults<MemoCore>
-    
+   
     var body: some View {
         VStack{
         TextField(" Enter some text", text: $memo.text)
@@ -24,6 +19,7 @@ struct DetailView: View {
         }.onDisappear(perform: {
             let i = self.capManager.memos.firstIndex(where: {$0.id == self.memo.id })
             self.capManager.memos[i ?? 0] = self.memo
+            self.capManager.save()
         })
     }
 }

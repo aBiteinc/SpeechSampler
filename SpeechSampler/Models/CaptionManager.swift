@@ -138,6 +138,7 @@ final class CaptionManager: NSObject, ObservableObject {
       isEnabledRecordButton = false
       recordButtonText = "Stopping"
       memos.append(Memo.init(text:caption))
+      save()
     } else {
       do {
         try startRecording()
@@ -147,6 +148,22 @@ final class CaptionManager: NSObject, ObservableObject {
       }
     }
   }
+    func decode(){
+    if let items = UserDefaults.standard.data(forKey: "memos") {
+         let decoder = JSONDecoder()
+         if let decoded = try? decoder.decode([Memo].self, from: items) {
+             memos = decoded
+             return
+         }
+     }
+     memos = []
+    }
+    func save(){
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(memos) {
+            UserDefaults.standard.set(encoded, forKey: "memos")
+        }
+    }
 }
 
 extension CaptionManager: SFSpeechRecognizerDelegate {
@@ -162,6 +179,4 @@ extension CaptionManager: SFSpeechRecognizerDelegate {
   }
 }
 
-extension MemoCore: Identifiable {
-    
-}
+

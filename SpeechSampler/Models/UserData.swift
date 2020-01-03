@@ -9,11 +9,7 @@
 import SwiftUI
 import Combine
 
-final class UserData: ObservableObject  {
-    @Published var memos:[Memo] = []
-}
-
-struct Memo: Identifiable {
+struct Memo: Identifiable,Codable {
     var id = UUID()
     var text:String = ""
 }

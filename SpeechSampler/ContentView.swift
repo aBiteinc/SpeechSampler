@@ -16,6 +16,7 @@ struct ContentView: View {
  
   private func deleteRow(at indexSet: IndexSet) {
     capManager.memos.remove(atOffsets: indexSet)
+    capManager.save()
   }
   var body: some View {
    NavigationView {
@@ -35,7 +36,9 @@ struct ContentView: View {
             }}.onDelete(perform: self.deleteRow)
         }
     }
-  }
+   }.onAppear(perform:{
+            self.capManager.decode()
+})
 }
 }
 
