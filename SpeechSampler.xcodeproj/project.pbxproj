@@ -14,6 +14,9 @@
 		2635BE2D23944A2D00DA8793 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2635BE2C23944A2D00DA8793 /* Preview Assets.xcassets */; };
 		2635BE3023944A2D00DA8793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2635BE2E23944A2D00DA8793 /* LaunchScreen.storyboard */; };
 		2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE38239454F600DA8793 /* CaptionManager.swift */; };
+		B82C9F0723BE16AC00593C44 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0623BE16AC00593C44 /* UserData.swift */; };
+		B82C9F0A23BECE5700593C44 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0923BECE5700593C44 /* DetailView.swift */; };
+		B82C9F0D23BEE4E600593C44 /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0B23BEE4E600593C44 /* CoreModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		2635BE3123944A2D00DA8793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2635BE38239454F600DA8793 /* CaptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionManager.swift; sourceTree = "<group>"; };
 		2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechSampler.entitlements; sourceTree = "<group>"; };
+		B82C9F0623BE16AC00593C44 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		B82C9F0923BECE5700593C44 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B82C9F0C23BEE4E600593C44 /* CoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,8 @@
 		2635BE2223944A2A00DA8793 /* SpeechSampler */ = {
 			isa = PBXGroup;
 			children = (
+				B82C9F0823BECE3F00593C44 /* Views */,
+				B82C9F0523BE169A00593C44 /* Models */,
 				2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */,
 				2635BE2323944A2A00DA8793 /* AppDelegate.swift */,
 				2635BE2523944A2A00DA8793 /* SceneDelegate.swift */,
@@ -67,7 +75,6 @@
 				2635BE2E23944A2D00DA8793 /* LaunchScreen.storyboard */,
 				2635BE3123944A2D00DA8793 /* Info.plist */,
 				2635BE2B23944A2D00DA8793 /* Preview Content */,
-				2635BE38239454F600DA8793 /* CaptionManager.swift */,
 			);
 			path = SpeechSampler;
 			sourceTree = "<group>";
@@ -78,6 +85,24 @@
 				2635BE2C23944A2D00DA8793 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B82C9F0523BE169A00593C44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B82C9F0B23BEE4E600593C44 /* CoreModel.xcdatamodeld */,
+				2635BE38239454F600DA8793 /* CaptionManager.swift */,
+				B82C9F0623BE16AC00593C44 /* UserData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B82C9F0823BECE3F00593C44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B82C9F0923BECE5700593C44 /* DetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +177,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */,
+				B82C9F0A23BECE5700593C44 /* DetailView.swift in Sources */,
 				2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */,
 				2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */,
+				B82C9F0723BE16AC00593C44 /* UserData.swift in Sources */,
+				B82C9F0D23BEE4E600593C44 /* CoreModel.xcdatamodeld in Sources */,
 				2635BE2823944A2A00DA8793 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,14 +322,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
-				DEVELOPMENT_TEAM = GCXLS66975;
+				DEVELOPMENT_TEAM = 822HL63RB2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SpeechSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abite.SpeechSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -317,14 +345,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
-				DEVELOPMENT_TEAM = GCXLS66975;
+				DEVELOPMENT_TEAM = 822HL63RB2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SpeechSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = work.mtfum.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abite.SpeechSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -354,6 +382,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B82C9F0B23BEE4E600593C44 /* CoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B82C9F0C23BEE4E600593C44 /* CoreModel.xcdatamodel */,
+			);
+			currentVersion = B82C9F0C23BEE4E600593C44 /* CoreModel.xcdatamodel */;
+			path = CoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2635BE1823944A2A00DA8793 /* Project object */;
 }

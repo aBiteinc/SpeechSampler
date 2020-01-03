@@ -5,17 +5,18 @@
 //  Created by Fumiya Yamanaka on 2019/12/02.
 //  Copyright © 2019 mtfum. All rights reserved.
 //
-
+import SwiftUI
 import Foundation
 import Speech
+import CoreData
 
 final class CaptionManager: NSObject, ObservableObject {
-
+  @Published var memos: [Memo] = []
   @Published var caption: String = ""
   @Published var isEnabledRecordButton = false
   @Published var recordButtonText = ""
 
-  private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!
+  private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
   private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
   private var recognitionTask: SFSpeechRecognitionTask?
   private let audioEngine = AVAudioEngine()
@@ -127,6 +128,7 @@ final class CaptionManager: NSObject, ObservableObject {
     // Let the user know to start talking.
     caption = "(Go ahead, I'm listening)"
     recordButtonText = "Stop Recording"
+    print(recordButtonText)
   }
 
   func switchRecording() {
@@ -135,6 +137,7 @@ final class CaptionManager: NSObject, ObservableObject {
       recognitionRequest?.endAudio()
       isEnabledRecordButton = false
       recordButtonText = "Stopping"
+      memos.append(Memo.init(text:caption))
     } else {
       do {
         try startRecording()
@@ -149,11 +152,16 @@ final class CaptionManager: NSObject, ObservableObject {
 extension CaptionManager: SFSpeechRecognizerDelegate {
   func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
     if available {
+      
       isEnabledRecordButton = true
-      recordButtonText = "Start Recording"
+      //recordButtonText = "Start Recording"
     } else {
       isEnabledRecordButton = false
       recordButtonText = "Recognition Not Available"
     }
   }
+}
+
+extension MemoCore: Identifiable {
+    
 }
