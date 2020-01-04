@@ -14,14 +14,11 @@ struct PickerView: View {
     @EnvironmentObject var userData: UserData
 
     var body: some View {
-        VStack{
-        Text(userData.identifier)
         Picker(selection: $userData.identifier, label: Text("Strength")) {
             ForEach(0 ..< texts.count) {
                 Text(self.texts[$0]).tag(self.contents[$0])
             }
         }.pickerStyle(SegmentedPickerStyle())
-        }
     }
 }
 

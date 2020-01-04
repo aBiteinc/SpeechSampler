@@ -18,6 +18,7 @@ struct ContentView: View {
             VStack {
                 ListView().environmentObject(userData)
                 Button("音声認識", action: { self.isRecording.toggle() })
+                PickerView().environmentObject(userData)
             }.navigationBarTitle("音声メモ")
         }.sheet(
             isPresented: $isRecording,

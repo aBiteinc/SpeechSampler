@@ -13,7 +13,6 @@ struct RecordingView: View {
     @EnvironmentObject var captionManager: CaptionManager
     @EnvironmentObject var userData: UserData
     @Binding var isPresented: Bool
-    // @State var
     
     var body: some View {
         VStack {
