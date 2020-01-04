@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-struct Memo: Identifiable,Codable {
+struct Memo: Identifiable, Codable {
     var id = UUID()
     var text:String = ""
 }

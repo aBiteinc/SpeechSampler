@@ -23,10 +23,10 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List{
-                ForEach(capManager.memos.reversed()){memo in
-                    NavigationLink(destination: DetailView(memo: memo )) {
-                        Text(memo.text).lineLimit(2)
-                    }}.onDelete(perform: self.deleteRow)
+                // ToDo: reverse
+                ForEach((0..<capManager.memos.count).reversed(), id: \.self){ id in
+                    TextView(text: self.$capManager.memos[id].text)
+                }.onDelete(perform: self.deleteRow)
             }.navigationBarTitle(Text("メモ一覧"),displayMode: .inline)
         }.onAppear(perform:{
             self.capManager.decode()
@@ -37,6 +37,7 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView().environmentObject(CaptionManager())
+        let captionManager = CaptionManager()
+        return ListView().environmentObject(captionManager)
     }
 }
