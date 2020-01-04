@@ -100,10 +100,10 @@ final class CaptionManager: NSObject, ObservableObject {
           let pitch = segment.voiceAnalytics?.pitch.acousticFeatureValuePerFrame
           let voicing = segment.voiceAnalytics?.voicing.acousticFeatureValuePerFrame
 
-            print("jitter:", jitter!,
-                  "\nshimmer:", shimmer!,
-                  "\n voicing:", voicing!,
-                "\npitch:",pitch!)
+            print("jitter:", jitter ?? "not defined",
+                  "\nshimmer:", shimmer ?? "not defined",
+                  "\n voicing:", voicing ?? "not defined",
+                "\npitch:",pitch ?? "not defined")
         }
       }
 
