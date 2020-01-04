@@ -24,7 +24,7 @@ struct RecordingView: View {
             })
         }.onAppear(
             perform: {
-                self.captionManager.safelyStartRecording("en-US")
+                self.captionManager.safelyStartRecording(self.userData.identifier)
         }).onDisappear(perform: {
             if let text:String = self.captionManager.stopRecording() {
                 self.userData.addMemo(text)

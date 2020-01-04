@@ -131,9 +131,9 @@ final class CaptionManager: NSObject, ObservableObject {
         print(recordButtonText)
     }
     
-    func safelyStartRecording(_ initializer: String) {
+    func safelyStartRecording(_ identifier: String) {
         do {
-            try self.startRecording(initializer)
+            try self.startRecording(identifier)
         } catch {
             print("Recording Not Available")
         }
