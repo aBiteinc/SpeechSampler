@@ -10,10 +10,10 @@ import SwiftUI
 
 
 struct RecordingView: View {
-    @State var displayingText: String = ""
     @EnvironmentObject var captionManager: CaptionManager
     @EnvironmentObject var userData: UserData
     @Binding var isPresented: Bool
+    // @State var
     
     var body: some View {
         VStack {

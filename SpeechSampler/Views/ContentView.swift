@@ -14,9 +14,11 @@ struct ContentView: View {
     @EnvironmentObject var userData: UserData
     
     var body: some View {
-        VStack {
-            ListView().environmentObject(userData)
-            Button("音声認識", action: { self.isRecording.toggle() })
+        NavigationView {
+            VStack {
+                ListView().environmentObject(userData)
+                Button("音声認識", action: { self.isRecording.toggle() })
+            }.navigationBarTitle("音声メモ")
         }.sheet(
             isPresented: $isRecording,
             content: {
