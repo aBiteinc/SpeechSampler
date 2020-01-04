@@ -13,21 +13,22 @@ struct ListView: View {
     
     private func deleteRow(at indexSet: IndexSet) {
         for index in indexSet {
-            let reversedIndex = userData.memos.count - index - 1
-            var memomemo =  userData.memos
-            print(reversedIndex)
-            print(userData.memos)
-            memomemo.remove(at: reversedIndex)
-            userData.memos = memomemo
+            let reversedIndex = userData.memos.count - 1 - index
+            print("remove", reversedIndex)
+            userData.memos.remove(at: reversedIndex)
         }
         userData.save()
     }
     
     var body: some View {
         List {
-            ForEach((0..<userData.memos.count).reversed(), id: \.self) {
-                id in
-                TextFieldView(text: self.$userData.memos[id].text)
+            ForEach(userData.memos.reversed()) {
+                memo in
+                TextFieldView(text:
+                    self.$userData.memos[
+                        self.userData.memos.firstIndex(of: memo)!
+                    ].text
+                )
             }.onDelete(perform: self.deleteRow)
         }.environment(\.defaultMinListRowHeight, 100)
     }
