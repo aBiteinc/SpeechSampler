@@ -36,10 +36,10 @@ final class UserData: ObservableObject {
     
     func save(){
         let encoder = JSONEncoder()
-        print(memos)
         if let encoded = try? encoder.encode(memos) {
             UserDefaults.standard.set(encoded, forKey: "memos")
         }
+        print("memos saved", memos)
     }
 }
 

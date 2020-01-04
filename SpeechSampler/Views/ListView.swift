@@ -11,25 +11,22 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var userData: UserData
     
-    private func deleteRow(at indexSet: IndexSet) {
-        for index in indexSet {
-            let reversedIndex = userData.memos.count - 1 - index
-            print("remove", reversedIndex)
-            userData.memos.remove(at: reversedIndex)
-        }
+    private func deleteRow(at offsets: IndexSet) {
+        userData.memos.remove(atOffsets: offsets)
         userData.save()
     }
     
     var body: some View {
-        List {
-            ForEach(userData.memos.reversed()) {
+        print("ids", userData.memos.map { $0.id } )
+        return List {
+            ForEach(userData.memos) {
                 memo in
-                TextFieldView(text:
+                TextFieldView(text: 
                     self.$userData.memos[
                         self.userData.memos.firstIndex(of: memo)!
                     ].text
                 )
-            }.onDelete(perform: self.deleteRow)
+            }.onDelete(perform: deleteRow)
         }.environment(\.defaultMinListRowHeight, 100)
     }
 }

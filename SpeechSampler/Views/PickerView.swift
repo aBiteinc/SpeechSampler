@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PickerView: View {
     let texts = ["日本語", "英語", "中国語"]
-    let contents = ["ja-JP","en-US","zh-Hans"]
+    let contents = ["ja-JP", "en-US", "zh-Hans"]
     @EnvironmentObject var userData: UserData
 
     var body: some View {

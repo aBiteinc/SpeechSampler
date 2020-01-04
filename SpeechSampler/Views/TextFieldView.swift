@@ -31,6 +31,7 @@ struct TextFieldView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
+        print("1", text)
     }
     
     class Coordinator : NSObject, UITextViewDelegate {
