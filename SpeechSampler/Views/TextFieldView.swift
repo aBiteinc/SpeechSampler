@@ -31,6 +31,7 @@ struct TextFieldView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
+        print("1", text)
     }
     
     class Coordinator : NSObject, UITextViewDelegate {
@@ -52,10 +53,9 @@ struct TextFieldView: UIViewRepresentable {
     }
 }
 
-/*
+
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(memo: Memo.init(text:"sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
+        TextFieldView(text: .constant("sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
     }
 }
- */
