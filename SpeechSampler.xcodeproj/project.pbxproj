@@ -16,6 +16,8 @@
 		2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE38239454F600DA8793 /* CaptionManager.swift */; };
 		B82C9F0723BE16AC00593C44 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0623BE16AC00593C44 /* UserData.swift */; };
 		B82C9F0A23BECE5700593C44 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0923BECE5700593C44 /* DetailView.swift */; };
+		B8DB735023BFFFD3008A8EF5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB734F23BFFFD3008A8EF5 /* InputView.swift */; };
+		B8DB735223C00041008A8EF5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB735123C00041008A8EF5 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechSampler.entitlements; sourceTree = "<group>"; };
 		B82C9F0623BE16AC00593C44 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B82C9F0923BECE5700593C44 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B8DB734F23BFFFD3008A8EF5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		B8DB735123C00041008A8EF5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				B82C9F0923BECE5700593C44 /* DetailView.swift */,
+				B8DB734F23BFFFD3008A8EF5 /* InputView.swift */,
+				B8DB735123C00041008A8EF5 /* ListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DB735223C00041008A8EF5 /* ListView.swift in Sources */,
 				2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */,
+				B8DB735023BFFFD3008A8EF5 /* InputView.swift in Sources */,
 				B82C9F0A23BECE5700593C44 /* DetailView.swift in Sources */,
 				2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */,
 				2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */,
@@ -316,6 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SpeechSampler/SpeechSampler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
 				DEVELOPMENT_TEAM = 822HL63RB2;
@@ -325,7 +334,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abite.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abite.VoiceMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
@@ -339,6 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SpeechSampler/SpeechSampler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SpeechSampler/Preview Content\"";
 				DEVELOPMENT_TEAM = 822HL63RB2;
@@ -348,7 +358,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.abite.SpeechSampler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abite.VoiceMemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;

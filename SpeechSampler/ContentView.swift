@@ -10,36 +10,29 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
-  @State var displayingText: String = ""
-  @EnvironmentObject var capManager:CaptionManager
- 
-  private func deleteRow(at indexSet: IndexSet) {
-    capManager.memos.remove(atOffsets: indexSet)
-    capManager.save()
-  }
-  var body: some View {
-   NavigationView {
-    List{
-        Section(header:Text("入力中")){
-             Text(capManager.caption)
-        }
-        Section(header:Text("メモ一覧"),
-                footer:
-                    Button(capManager.recordButtonText) {
-                       self.capManager.switchRecording()
-                    }.disabled(!self.capManager.isEnabledRecordButton)
-        ){
-            ForEach(capManager.memos.reversed()){memo in
-            NavigationLink(destination: DetailView(memo: memo )) {
-                Text(memo.text)
-            }}.onDelete(perform: self.deleteRow)
-        }
-    }
-   }.onAppear(perform:{
-            self.capManager.decode()
-})
-}
+  @State private var selection = 0
+     var body: some View {
+         TabView(selection: $selection){
+            InputView()// ここを VoiceView に置き換える
+                 .font(.title)
+                 .tabItem {
+                     VStack {
+                         Image(systemName: "mic.fill")
+                         Text("音声入力")
+                     }
+                 }
+                 .tag(0)
+             ListView()
+                 .font(.title)
+                 .tabItem {
+                     VStack {
+                         Image(systemName: "doc.plaintext")
+                         Text("メモ一覧")
+                     }
+                 }
+                 .tag(1)
+         }
+     }
 }
 
 struct ContentView_Previews: PreviewProvider {

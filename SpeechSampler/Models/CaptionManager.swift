@@ -15,14 +15,17 @@ final class CaptionManager: NSObject, ObservableObject {
   @Published var caption: String = ""
   @Published var isEnabledRecordButton = false
   @Published var recordButtonText = ""
-
-  private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
+  @Published var identifier = "ja-JP"
+  func speechRecognizerChoice()->SFSpeechRecognizer{
+        return  SFSpeechRecognizer(locale: Locale(identifier: identifier))!
+  }
   private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
   private var recognitionTask: SFSpeechRecognitionTask?
   private let audioEngine = AVAudioEngine()
 
   override init() {
     super.init()
+    let speechRecognizer = speechRecognizerChoice()
     speechRecognizer.delegate = self
 
     SFSpeechRecognizer.requestAuthorization { authStatus in
@@ -53,6 +56,7 @@ final class CaptionManager: NSObject, ObservableObject {
   }
 
   private func startRecording() throws {
+    let speechRecognizer = speechRecognizerChoice()
 
     // Cancel the previous task if it's running.
     recognitionTask?.cancel()
@@ -126,7 +130,7 @@ final class CaptionManager: NSObject, ObservableObject {
     try audioEngine.start()
 
     // Let the user know to start talking.
-    caption = "(Go ahead, I'm listening)"
+    caption = ""
     recordButtonText = "Stop Recording"
     print(recordButtonText)
   }
@@ -137,7 +141,9 @@ final class CaptionManager: NSObject, ObservableObject {
       recognitionRequest?.endAudio()
       isEnabledRecordButton = false
       recordButtonText = "Stopping"
+      if(caption.count > 0){
       memos.append(Memo.init(text:caption))
+      }
       save()
     } else {
       do {
@@ -173,8 +179,8 @@ extension CaptionManager: SFSpeechRecognizerDelegate {
       isEnabledRecordButton = true
       //recordButtonText = "Start Recording"
     } else {
-      isEnabledRecordButton = false
-      recordButtonText = "Recognition Not Available"
+      isEnabledRecordButton = true
+      //recordButtonText = "Recognition Not Available"
     }
   }
 }
