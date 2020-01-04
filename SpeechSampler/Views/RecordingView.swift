@@ -32,11 +32,10 @@ struct RecordingView: View {
     }
 }
 
-/*
- struct InputView_Previews: PreviewProvider {
- static var previews: some View {
- let userData = UserData()
- return InputView(memos: $userData.memos).environmentObject(CaptionManager())
- }
- }
- */
+struct RecordingView_Previews: PreviewProvider {
+    static var previews: some View {
+        return RecordingView(isPresented: .constant(true))
+            .environmentObject(CaptionManager())
+            .environmentObject(UserData())
+    }
+}
