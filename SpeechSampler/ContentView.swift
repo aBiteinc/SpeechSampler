@@ -10,33 +10,34 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-  @State private var selection = 0
-     var body: some View {
-         TabView(selection: $selection){
-            InputView()// ここを VoiceView に置き換える
-                 .font(.title)
-                 .tabItem {
-                     VStack {
-                         Image(systemName: "mic.fill")
-                         Text("音声入力")
-                     }
-                 }
-                 .tag(0)
-             ListView()
-                 .font(.title)
-                 .tabItem {
-                     VStack {
-                         Image(systemName: "doc.plaintext")
-                         Text("メモ一覧")
-                     }
-                 }
-                 .tag(1)
-         }
-     }
+    @State private var selection = 0
+    
+    var body: some View {
+        TabView(selection: $selection){
+            InputView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "mic.fill")
+                        Text("音声入力")
+                    }
+            }
+            .tag(0)
+            ListView()
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image(systemName: "doc.plaintext")
+                        Text("メモ一覧")
+                    }
+            }
+            .tag(1)
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView().environmentObject(CaptionManager())
-  }
+    static var previews: some View {
+        ContentView().environmentObject(CaptionManager())
+    }
 }
