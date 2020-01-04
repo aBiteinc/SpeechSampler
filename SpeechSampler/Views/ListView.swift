@@ -34,12 +34,12 @@ struct ListView: View {
     }
 }
 
-/*
+
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         let userData = UserData()
-        // userData.memos.append(Memo.init(text: "asb"))
+        userData.memos.append(Memo.init(text: "今度内閣府でデモをします。内閣府は永田町にあります。"))
+        userData.memos.append(Memo.init(text: "asb"))
         return ListView().environmentObject(userData)
     }
 }
-*/
