@@ -10,34 +10,25 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var selection = 0
+    @State var isRecording: Bool = false
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
-        TabView(selection: $selection){
-            InputView()
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "mic.fill")
-                        Text("音声入力")
-                    }
-            }
-            .tag(0)
-            ListView()
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "doc.plaintext")
-                        Text("メモ一覧")
-                    }
-            }
-            .tag(1)
-        }
+        VStack {
+            ListView().environmentObject(userData)
+            Button("音声認識", action: { self.isRecording.toggle() })
+        }.sheet(
+            isPresented: $isRecording,
+            content: {
+                InputView(isPresented: self.$isRecording)
+                    .environmentObject(CaptionManager())
+                    .environmentObject(self.userData)
+        })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(CaptionManager())
+        ContentView().environmentObject(UserData())
     }
 }

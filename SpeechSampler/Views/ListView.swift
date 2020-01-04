@@ -9,35 +9,32 @@
 import SwiftUI
 
 struct ListView: View {
-    @State var displayingText: String = ""
-    @EnvironmentObject var capManager:CaptionManager
+    @EnvironmentObject var userData: UserData
     
     private func deleteRow(at indexSet: IndexSet) {
         for index in indexSet {
-            let reversedIndex = capManager.memos.count - index - 1
-            capManager.memos.remove(at: reversedIndex)
+            let reversedIndex = userData.memos.count - index - 1
+            userData.memos.remove(at: reversedIndex)
         }
-        capManager.save()
+        userData.save()
     }
     
     var body: some View {
-        NavigationView {
-            List{
-                // ToDo: reverse
-                ForEach((0..<capManager.memos.count).reversed(), id: \.self){ id in
-                    TextView(text: self.$capManager.memos[id].text)
-                }.onDelete(perform: self.deleteRow)
-            }.navigationBarTitle(Text("メモ一覧"),displayMode: .inline)
-        }.onAppear(perform:{
-            self.capManager.decode()
-            print("appear2")
-        })
+        List {
+            ForEach((0..<userData.memos.count).reversed(), id: \.self) {
+                id in
+                Text(self.userData.memos[id].text).lineLimit(nil)
+            }.onDelete(perform: self.deleteRow)
+        }
     }
 }
 
+/*
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        let captionManager = CaptionManager()
-        return ListView().environmentObject(captionManager)
+        let userData = UserData()
+        // userData.memos.append(Memo.init(text: "asb"))
+        return ListView().environmentObject(userData)
     }
 }
+*/

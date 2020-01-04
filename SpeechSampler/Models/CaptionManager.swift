@@ -5,19 +5,16 @@
 //  Created by Fumiya Yamanaka on 2019/12/02.
 //  Copyright © 2019 mtfum. All rights reserved.
 //
-import SwiftUI
 import Foundation
 import Speech
-import CoreData
 
 final class CaptionManager: NSObject, ObservableObject {
-    @Published var memos: [Memo] = []
     @Published var caption: String = ""
     @Published var isEnabledRecordButton = false
     @Published var recordButtonText = ""
-    @Published var identifier = "ja-JP"
+    
     func speechRecognizerChoice()->SFSpeechRecognizer{
-        return  SFSpeechRecognizer(locale: Locale(identifier: identifier))!
+        return  SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
     }
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -33,23 +30,22 @@ final class CaptionManager: NSObject, ObservableObject {
             OperationQueue.main.addOperation {
                 switch authStatus {
                 case .authorized:
-                    self.isEnabledRecordButton = true
-                    self.recordButtonText = "Start Recording"
+                  self.recordButtonText = "音声認識を開始"
                 case .denied:
-                    self.isEnabledRecordButton = false
-                    self.recordButtonText = "User denied access to speech recognition"
-                    
+                  self.isEnabledRecordButton = false
+                  self.recordButtonText = "音声認識への許可を与えてください"
+
                 case .restricted:
-                    self.isEnabledRecordButton = false
-                    self.recordButtonText = "Speech recognition restricted on this device"
-                    
+                  self.isEnabledRecordButton = false
+                  self.recordButtonText = "この端末では音声認識が禁止されています"
+
                 case .notDetermined:
-                    self.isEnabledRecordButton = false
-                    self.recordButtonText = "Speech recognition not yet authorized"
-                    
+                  self.isEnabledRecordButton = false
+                  self.recordButtonText = "Speech recognition not yet authorized"
+
                 default:
-                    self.isEnabledRecordButton = false
-                    self.recordButtonText = "Nothing"
+                  self.isEnabledRecordButton = false
+                  self.recordButtonText = "なんでもないです"
                 }
             }
         }
@@ -135,16 +131,15 @@ final class CaptionManager: NSObject, ObservableObject {
         print(recordButtonText)
     }
     
-    func switchRecording() {
+    func switchRecording() -> String? {
         if audioEngine.isRunning  {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             isEnabledRecordButton = false
             recordButtonText = "Stopping"
             if(caption.count > 0){
-                memos.append(Memo.init(text:caption))
+                return self.caption
             }
-            save()
         } else {
             do {
                 try startRecording()
@@ -153,22 +148,7 @@ final class CaptionManager: NSObject, ObservableObject {
                 recordButtonText = "Recording Not Available"
             }
         }
-    }
-    func decode(){
-        if let items = UserDefaults.standard.data(forKey: "memos") {
-            let decoder = JSONDecoder()
-            if let decoded = try? decoder.decode([Memo].self, from: items) {
-                memos = decoded
-                return
-            }
-        }
-        memos = []
-    }
-    func save(){
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(memos) {
-            UserDefaults.standard.set(encoded, forKey: "memos")
-        }
+        return nil
     }
 }
 
