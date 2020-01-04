@@ -18,6 +18,7 @@ struct DetailView: View {
         TextView(text: $memo.text)
         Spacer()
         }.onDisappear(perform: {
+            print("disappear")
             let i = self.capManager.memos.firstIndex(where: {$0.id == self.memo.id })
             self.capManager.memos[i ?? 0] = self.memo
             self.capManager.save()
