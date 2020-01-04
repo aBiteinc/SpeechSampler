@@ -43,7 +43,7 @@ final class UserData: ObservableObject {
     }
 }
 
-struct Memo: Identifiable, Codable {
+struct Memo: Identifiable, Codable, Equatable {
     var id = UUID()
     var text:String = ""
 }
