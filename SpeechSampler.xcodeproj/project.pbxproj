@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05C692CD23C0709300F23C31 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C692CC23C0709300F23C31 /* TextFieldView.swift */; };
 		2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2323944A2A00DA8793 /* AppDelegate.swift */; };
 		2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2523944A2A00DA8793 /* SceneDelegate.swift */; };
 		2635BE2823944A2A00DA8793 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2723944A2A00DA8793 /* ContentView.swift */; };
@@ -15,11 +16,12 @@
 		2635BE3023944A2D00DA8793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2635BE2E23944A2D00DA8793 /* LaunchScreen.storyboard */; };
 		2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE38239454F600DA8793 /* CaptionManager.swift */; };
 		B82C9F0723BE16AC00593C44 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82C9F0623BE16AC00593C44 /* UserData.swift */; };
-		B8DB735023BFFFD3008A8EF5 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB734F23BFFFD3008A8EF5 /* InputView.swift */; };
+		B8DB735023BFFFD3008A8EF5 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB734F23BFFFD3008A8EF5 /* RecordingView.swift */; };
 		B8DB735223C00041008A8EF5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB735123C00041008A8EF5 /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05C692CC23C0709300F23C31 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		2635BE2023944A2A00DA8793 /* SpeechSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2635BE2323944A2A00DA8793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2635BE2523944A2A00DA8793 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +33,7 @@
 		2635BE38239454F600DA8793 /* CaptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionManager.swift; sourceTree = "<group>"; };
 		2635BE3A2394725F00DA8793 /* SpeechSampler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechSampler.entitlements; sourceTree = "<group>"; };
 		B82C9F0623BE16AC00593C44 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		B8DB734F23BFFFD3008A8EF5 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		B8DB734F23BFFFD3008A8EF5 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		B8DB735123C00041008A8EF5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,8 +101,9 @@
 		B82C9F0823BECE3F00593C44 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B8DB734F23BFFFD3008A8EF5 /* InputView.swift */,
+				B8DB734F23BFFFD3008A8EF5 /* RecordingView.swift */,
 				B8DB735123C00041008A8EF5 /* ListView.swift */,
+				05C692CC23C0709300F23C31 /* TextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,7 +181,8 @@
 			files = (
 				B8DB735223C00041008A8EF5 /* ListView.swift in Sources */,
 				2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */,
-				B8DB735023BFFFD3008A8EF5 /* InputView.swift in Sources */,
+				05C692CD23C0709300F23C31 /* TextFieldView.swift in Sources */,
+				B8DB735023BFFFD3008A8EF5 /* RecordingView.swift in Sources */,
 				2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */,
 				2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */,
 				B82C9F0723BE16AC00593C44 /* UserData.swift in Sources */,

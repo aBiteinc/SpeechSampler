@@ -23,7 +23,7 @@ struct ListView: View {
         List {
             ForEach((0..<userData.memos.count).reversed(), id: \.self) {
                 id in
-                Text(self.userData.memos[id].text).lineLimit(nil)
+                TextFieldView(text: self.$userData.memos[id].text)
             }.onDelete(perform: self.deleteRow)
         }
     }

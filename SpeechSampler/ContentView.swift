@@ -20,7 +20,7 @@ struct ContentView: View {
         }.sheet(
             isPresented: $isRecording,
             content: {
-                InputView(isPresented: self.$isRecording)
+                RecordingView(isPresented: self.$isRecording)
                     .environmentObject(CaptionManager())
                     .environmentObject(self.userData)
         })
