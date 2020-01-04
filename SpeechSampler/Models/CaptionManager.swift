@@ -13,8 +13,8 @@ final class CaptionManager: NSObject, ObservableObject {
     @Published var isEnabledRecordButton = false
     @Published var recordButtonText = ""
     
-    func speechRecognizerChoice()->SFSpeechRecognizer{
-        return  SFSpeechRecognizer(locale: Locale(identifier: "ja-JP"))!
+    func speechRecognizerChoice(_ identifier: String = "ja-JP")->SFSpeechRecognizer{
+        return  SFSpeechRecognizer(locale: Locale(identifier: identifier))!
     }
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -51,8 +51,8 @@ final class CaptionManager: NSObject, ObservableObject {
         }
     }
     
-    private func startRecording() throws {
-        let speechRecognizer = speechRecognizerChoice()
+    func startRecording(_ identifier: String) throws {
+        let speechRecognizer = speechRecognizerChoice(identifier)
         
         // Cancel the previous task if it's running.
         recognitionTask?.cancel()
@@ -131,7 +131,7 @@ final class CaptionManager: NSObject, ObservableObject {
         print(recordButtonText)
     }
     
-    func switchRecording() -> String? {
+    func stopRecording() -> String? {
         if audioEngine.isRunning  {
             audioEngine.stop()
             recognitionRequest?.endAudio()
@@ -139,13 +139,6 @@ final class CaptionManager: NSObject, ObservableObject {
             recordButtonText = "Stopping"
             if(caption.count > 0){
                 return self.caption
-            }
-        } else {
-            do {
-                try startRecording()
-                recordButtonText = "Stop Recording"
-            } catch {
-                recordButtonText = "Recording Not Available"
             }
         }
         return nil

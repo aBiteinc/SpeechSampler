@@ -20,16 +20,20 @@ struct RecordingView: View {
             Text("マイクに話してください")
             Text(captionManager.caption)
             Button("終了", action: {
-                if let text:String = self.captionManager.switchRecording() {
-                    self.userData.addMemo(text)
-                    self.isPresented.toggle()
-                }
+                self.isPresented.toggle()
             })
         }.onAppear(
             perform: {
-                self.captionManager.switchRecording()
-        }
-        )
+                do {
+                    try self.captionManager.startRecording("ja-JP")
+                } catch {
+                    print("Recording Not Available")
+                }
+        }).onDisappear(perform: {
+            if let text:String = self.captionManager.stopRecording() {
+                self.userData.addMemo(text)
+            }
+        })
     }
 }
 
