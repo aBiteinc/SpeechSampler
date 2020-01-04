@@ -14,7 +14,11 @@ struct ListView: View {
     private func deleteRow(at indexSet: IndexSet) {
         for index in indexSet {
             let reversedIndex = userData.memos.count - index - 1
-            userData.memos.remove(at: reversedIndex)
+            var memomemo =  userData.memos
+            print(reversedIndex)
+            print(userData.memos)
+            memomemo.remove(at: reversedIndex)
+            userData.memos = memomemo
         }
         userData.save()
     }
@@ -25,7 +29,7 @@ struct ListView: View {
                 id in
                 TextFieldView(text: self.$userData.memos[id].text)
             }.onDelete(perform: self.deleteRow)
-        }
+        }.environment(\.defaultMinListRowHeight, 100)
     }
 }
 
