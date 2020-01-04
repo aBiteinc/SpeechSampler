@@ -51,7 +51,7 @@ final class CaptionManager: NSObject, ObservableObject {
         }
     }
     
-    func startRecording(_ identifier: String) throws {
+    private func startRecording(_ identifier: String) throws {
         let speechRecognizer = speechRecognizerChoice(identifier)
         
         // Cancel the previous task if it's running.
@@ -129,6 +129,14 @@ final class CaptionManager: NSObject, ObservableObject {
         caption = ""
         recordButtonText = "Stop Recording"
         print(recordButtonText)
+    }
+    
+    func safelyStartRecording(_ initializer: String) {
+        do {
+            try self.startRecording(initializer)
+        } catch {
+            print("Recording Not Available")
+        }
     }
     
     func stopRecording() -> String? {
