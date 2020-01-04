@@ -52,10 +52,9 @@ struct TextFieldView: UIViewRepresentable {
     }
 }
 
-/*
+
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(memo: Memo.init(text:"sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
+        TextFieldView(text: .constant("sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
     }
 }
- */
