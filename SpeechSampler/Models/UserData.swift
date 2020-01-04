@@ -11,9 +11,11 @@ import CoreData
 
 final class UserData: ObservableObject {
     @Published var memos: [Memo]
+    @Published var identifier: String
         
     init(){
         self.memos = []
+        self.identifier = "ja-JP"
         self.load()
     }
 
@@ -34,6 +36,7 @@ final class UserData: ObservableObject {
     
     func save(){
         let encoder = JSONEncoder()
+        print(memos)
         if let encoded = try? encoder.encode(memos) {
             UserDefaults.standard.set(encoded, forKey: "memos")
         }
