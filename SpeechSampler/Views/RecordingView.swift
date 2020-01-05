@@ -17,13 +17,24 @@ struct RecordingView: View {
     var body: some View {
         VStack {
             Text("マイクに話してください")
+                .font(.largeTitle)
             Text(captionManager.caption)
-            Button("終了", action: {
+                .padding()
+                .border(Color.black, width: 5)
+            Spacer()
+            HStack{
+            Button("リセット", action: {
+                self.captionManager.stopRecording()
                 self.isPresented.toggle()
             })
+            Button("保存", action: {
+                self.isPresented.toggle()
+            })
+            }
         }.onAppear(
             perform: {
                 self.captionManager.safelyStartRecording(self.userData.identifier)
+                
         }).onDisappear(perform: {
             if let text:String = self.captionManager.stopRecording() {
                 self.userData.addMemo(text)

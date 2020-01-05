@@ -17,7 +17,13 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ListView().environmentObject(userData)
-                Button("音声認識", action: { self.isRecording.toggle() })
+                Button(action: { self.isRecording.toggle() }){
+                    Image(systemName: "mic")
+                    .resizable()
+                    .frame(width:30, height: 30)
+                    .padding()
+                    .border(Color.blue, width: 5)
+                }
                 PickerView().environmentObject(userData)
             }.navigationBarTitle("音声メモ")
         }.sheet(

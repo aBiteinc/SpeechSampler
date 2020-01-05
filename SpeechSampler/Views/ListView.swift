@@ -19,13 +19,13 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(userData.memos) {
-                    memo in NavigationLink(destination: DetailView(index: self.userData.memos.firstIndex(of: memo)!).environmentObject(self.userData)) {
+                ForEach(userData.memos) {memo in
+                    NavigationLink(destination: DetailView(index: self.userData.memos.firstIndex(of: memo)!).environmentObject(self.userData)) {
                         Text(
                             self.userData.memos[
                                 self.userData.memos.firstIndex(of: memo)!
                             ].text
-                        )
+                        ).lineLimit(3)
                     }
                 }.onDelete(perform: deleteRow)
             }.environment(\.defaultMinListRowHeight, 100)
