@@ -1,14 +1,30 @@
 //
-//  TextFieldView.swift
+//  DetailView.swift
 //  SpeechSampler
 //
-//  Created by Tomokatsu Onaga on 2020/01/04.
+//  Created by HidekiMachida on 2020/01/03.
 //  Copyright © 2020 mtfum. All rights reserved.
 //
 
 import SwiftUI
 
-struct TextFieldView: UIViewRepresentable {
+
+struct DetailView: View {
+    var index: Int
+    @EnvironmentObject var userData: UserData
+    
+    var body: some View {
+        VStack{
+            TextView(text: $userData.memos[index].text)
+            Spacer()
+        }.onDisappear(perform: {
+            print("disappear")
+            self.userData.save()
+        })
+    }
+}
+
+struct TextView: UIViewRepresentable {
     @Binding var text: String
     
     func makeCoordinator() -> Coordinator {
@@ -20,25 +36,23 @@ struct TextFieldView: UIViewRepresentable {
         let myTextView = UITextView()
         myTextView.delegate = context.coordinator
         
-        myTextView.font = UIFont(name: "HelveticaNeue", size: 20)
+        myTextView.font = UIFont(name: "HelveticaNeue", size: 30)
         myTextView.isScrollEnabled = true
         myTextView.isEditable = true
         myTextView.isUserInteractionEnabled = true
-        // myTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.05)
+        myTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.05)
         
         return myTextView
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
-        print("1", text)
     }
     
     class Coordinator : NSObject, UITextViewDelegate {
+        var parent: TextView
         
-        var parent: TextFieldView
-        
-        init(_ uiTextView: TextFieldView) {
+        init(_ uiTextView: TextView) {
             self.parent = uiTextView
         }
         
@@ -53,9 +67,10 @@ struct TextFieldView: UIViewRepresentable {
     }
 }
 
-
+/*
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldView(text: .constant("sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
+        DetailView(memo: Memo.init(text:"sssssssssssssssssssssssssscsccscscdscdssvsvavdavvdvavdavdvavadvavdava"))
     }
 }
+*/

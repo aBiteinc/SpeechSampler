@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05C692CD23C0709300F23C31 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C692CC23C0709300F23C31 /* TextFieldView.swift */; };
+		05C692CD23C0709300F23C31 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C692CC23C0709300F23C31 /* DetailView.swift */; };
 		2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2323944A2A00DA8793 /* AppDelegate.swift */; };
 		2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2523944A2A00DA8793 /* SceneDelegate.swift */; };
 		2635BE2823944A2A00DA8793 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2635BE2723944A2A00DA8793 /* ContentView.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05C692CC23C0709300F23C31 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		05C692CC23C0709300F23C31 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2635BE2023944A2A00DA8793 /* SpeechSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2635BE2323944A2A00DA8793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2635BE2523944A2A00DA8793 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +104,7 @@
 			children = (
 				B8DB734F23BFFFD3008A8EF5 /* RecordingView.swift */,
 				B8DB735123C00041008A8EF5 /* ListView.swift */,
-				05C692CC23C0709300F23C31 /* TextFieldView.swift */,
+				05C692CC23C0709300F23C31 /* DetailView.swift */,
 				B894109223C08FE600B4C804 /* PickerView.swift */,
 				2635BE2723944A2A00DA8793 /* ContentView.swift */,
 			);
@@ -185,7 +185,7 @@
 				B8DB735223C00041008A8EF5 /* ListView.swift in Sources */,
 				2635BE2423944A2A00DA8793 /* AppDelegate.swift in Sources */,
 				B894109323C08FE600B4C804 /* PickerView.swift in Sources */,
-				05C692CD23C0709300F23C31 /* TextFieldView.swift in Sources */,
+				05C692CD23C0709300F23C31 /* DetailView.swift in Sources */,
 				B8DB735023BFFFD3008A8EF5 /* RecordingView.swift in Sources */,
 				2635BE2623944A2A00DA8793 /* SceneDelegate.swift in Sources */,
 				2635BE39239454F600DA8793 /* CaptionManager.swift in Sources */,

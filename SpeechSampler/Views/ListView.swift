@@ -17,17 +17,19 @@ struct ListView: View {
     }
     
     var body: some View {
-        print("ids", userData.memos.map { $0.id } )
-        return List {
-            ForEach(userData.memos) {
-                memo in
-                TextFieldView(text: 
-                    self.$userData.memos[
-                        self.userData.memos.firstIndex(of: memo)!
-                    ].text
-                )
-            }.onDelete(perform: deleteRow)
-        }.environment(\.defaultMinListRowHeight, 100)
+        NavigationView {
+            List {
+                ForEach(userData.memos) {
+                    memo in NavigationLink(destination: DetailView(index: self.userData.memos.firstIndex(of: memo)!).environmentObject(self.userData)) {
+                        Text(
+                            self.userData.memos[
+                                self.userData.memos.firstIndex(of: memo)!
+                            ].text
+                        )
+                    }
+                }.onDelete(perform: deleteRow)
+            }.environment(\.defaultMinListRowHeight, 100)
+        }
     }
 }
 
