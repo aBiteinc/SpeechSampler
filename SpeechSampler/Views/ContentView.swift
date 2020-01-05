@@ -20,12 +20,14 @@ struct ContentView: View {
                 Button(action: { self.isRecording.toggle() }){
                     Image(systemName: "mic")
                     .resizable()
-                    .frame(width:30, height: 30)
+                    .frame(width:30, height: 40)
+                .foregroundColor(Color.pink)
                     .padding()
-                    .border(Color.blue, width: 5)
+                    .border(Color.pink, width: 5)
                 }
                 PickerView().environmentObject(userData)
-            }.navigationBarTitle("音声メモ")
+            }.navigationBarTitle("音声メモ",displayMode: .inline)
+                .navigationBarItems(leading: Image( "40"))
         }.sheet(
             isPresented: $isRecording,
             content: {

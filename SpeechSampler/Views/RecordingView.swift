@@ -16,22 +16,46 @@ struct RecordingView: View {
     
     var body: some View {
         VStack {
-            Text("マイクに話してください")
-                .font(.largeTitle)
+            Text("マイクに音声をどうぞ")
+                .font(.title)
+            Spacer()
             Text(captionManager.caption)
-                .padding()
-                .border(Color.black, width: 5)
+                .font(.title)
+                .fontWeight(.bold)
+               .padding()
+                .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                .stroke(Color.black, lineWidth: 1))
             Spacer()
             HStack{
-            Button("リセット", action: {
+            Spacer()
+            Button(action: {
                 self.captionManager.stopRecording()
                 self.isPresented.toggle()
-            })
-            Button("保存", action: {
+            }){
+                Text("RESET")
+                .foregroundColor(Color.gray)
+                .bold()
+                .padding()
+                .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.gray, lineWidth: 5))
+                }
+            Spacer()
+            Button(action: {
                 self.isPresented.toggle()
-            })
+            }){
+                Text(" SAVE ").foregroundColor(Color.pink)
+                    .bold()
+                    .padding()
+                .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.pink, lineWidth: 5))
+                }
+            Spacer()
             }
-        }.onAppear(
+            }.padding()
+        .onAppear(
             perform: {
                 self.captionManager.safelyStartRecording(self.userData.identifier)
                 
