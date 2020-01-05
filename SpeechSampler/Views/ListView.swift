@@ -29,7 +29,8 @@ struct ListView: View {
                     }
                 }.onDelete(perform: deleteRow)
             }.environment(\.defaultMinListRowHeight, 100)
-        }
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

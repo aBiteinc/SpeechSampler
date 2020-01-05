@@ -25,6 +25,7 @@ struct DetailView: View {
             Spacer()
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
             let longText = self.userData.memos[self.index].text
             if longText.count < 22{

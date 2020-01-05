@@ -28,7 +28,9 @@ struct ContentView: View {
                 PickerView().environmentObject(userData)
             }.navigationBarTitle("音声メモ",displayMode: .inline)
                 .navigationBarItems(leading: Image( "40"))
-        }.sheet(
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(
             isPresented: $isRecording,
             content: {
                 RecordingView(isPresented: self.$isRecording)
